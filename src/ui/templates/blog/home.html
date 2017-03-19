@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+ <section>
+       <div class="container">
+        <div class="articles-section">
+            {% for post in posts %}
+            <article class="post" data-id="1">
+                <picture>
+                    <img src="{{post.post_img}}" alt="{{post.title}}">
+                    </picture>
+                <div class="post-content">
+                    <div class="post-detail">
+                        <div class="post-content-detail">
+                            <div class="post-autor">
+
+                                <p class="post-autor-name">{{ post.owner }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <h1 class="post-title"><a href="{% url 'post_detail' post.owner post.pk %}" title="View {{ post.title }}">{{ post.title }}</a> </h1>
+                    <p class="post-text"> {{post.post_intro}} <span class="texto-oculto">
+                            {{post.post_body}}
+                        </span><br/><a href="#" class="leer-mas">Seguir leyendo...</a> </p>
+                    <time class="post-date">{{ post.created_at}}</time>
+                    <div class="post-detail"> <a href="{% url 'post_detail' post.owner post.pk %}" class="post-detail-link">Detalles</a> </div>
+                </div>
+                <div class="social-content"> <a href="#" class="like-btn"><i class="fa fa-heart" aria-hidden="true"></i></a> <a href="#" class="unlike-btn"><i class="fa fa-heart red" aria-hidden="true"></i></a> <a href="details.html#js--comments-section"><i class="fa fa-comment" aria-hidden="true"></i>3</a> </div>
+            </article>
+            {% endfor %}
+             </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,51 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} Wordplease {% endblock %} </title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"> </head>
+
+<body>
+    <div class="wrap js-inicio">
+        <header class="logo">
+            <h1 class="logo-title">
+                <a href="#" class="logo-link">WordPlease</a>
+            </h1> </header>
+        <a class="btn-menu"> <span class="lines"></span> </a>
+    </div>
+    <nav class="navbar">
+        <ul class="navbar-list">
+            <li class="navbar-item"><a href="/" class="navbar-link">Home</a></li>
+            <li class="navbar-item"><a href="#" class="navbar-link">Cultura</a></li>
+            <li class="navbar-item"><a href="#" class="navbar-link">Sociedad</a></li>
+            <li class="navbar-item"><a href="#" class="navbar-link">Deportes</a></li>
+            <li class="navbar-item"><a href="#" class="navbar-link">Ciencia</a></li>
+        </ul>
+        <form role="search" method="get" id="searchform">
+            <label for="search-input"><i class="fa fa-search" aria-hidden="true"></i></label>
+            <input type="text" placeholder="Buscar..." id="search-input"> </form>
+        {% if user.is_authenticated %}
+        <a class="login-button" href="{% url 'logout'  %}" title="Logout">Logout</a>
+        <a class="register-button" href="{% url 'post_new' %}" title="Logout">New Post</a>
+        {% else %}
+        <a class="login-button" href="{% url 'login' %}" title="Logout">Login</a>
+        <a class="register-button" href="{% url 'signup' %}" title="Logout">Registrate</a>
+        {% endif %}
+    </nav>
+    <header class="web-header">
+        <h1 class="web-header-title">WordPlease</h1>
+        <h2 class="web-header-subtitle">Web de artículos Keepcoding</h2> </header>
+
+    {% block content %}{% endblock %}
+    <footer>
+        <h1>Wordplease</h1>
+        <h2>Blog de actualiad</h2> <a class="js-scroll-to-start" href="">Volver arriba</a> </footer>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>

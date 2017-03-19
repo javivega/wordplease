@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+ <section class="blogs">
+     {% for blog in blogs %}
+        <ul class="blog-list">
+            <li class="blog-item"><a href="{% url 'user_posts' blog.username %}">El blog de: {{blog.username}}</a></li>
+        </ul>
+     {% endfor %}
+    </section>
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block title%}{{detail_post.title}}{% endblock %}
+
+
+{% block content %}
+	<section>
+		<div class="container">
+			<article class="post-detail">
+				<img class="post-img-detail"  src="{{ detail_post.post_img}}" alt="post-img-detail"/>
+				<div class="post-content-detail">
+				<div class="post-autor">
+				    <p class="post-autor-name">{{ detail_post.owner}}</p>
+				</div>
+
+					<h2 class="post-title">{{ detail_post.title }}</h2>
+					<p class="post-text">{{ detail_post.post_intro }}</p>
+						<p class="post-text">
+						{{ detail_post.post_body}}</p>
+
+						<time class="post-date-detail">{{ detail_post.created_at}}</time>
+				</div>
+			</article>
+		</div>
+	</section>
+	<section class="comments-section container" id="js--comments-section">
+	    <div class="comments">
+	        <div class="ui-ideal">
+                <!--  <article>
+                    <div class="comment-box">
+                        <p class="autor-line"><span class="autor-name"> Miguel </span>20 de abril del 90</p>
+                        <div class="separator"></div>
+                        <p class="autor-comment"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa iusto quibusdam reiciendis, vero tempora consequuntur magni fugit neque dolore placeat eum commodi culpa, quam dolor illo beatae? Sapiente, quaerat, nesciunt. </p>
+                    </div>
+                </article> -->
+	        </div>
+	        <div class="ui-error">
+	            Se ha producido un error
+	        </div>
+	        <div class="ui-blank">
+	            aun no hay comentarios
+	        </div>
+	        <div class="ui-loading">
+	            cargando...
+	        </div>
+	    </div>
+	    <div class="comments-form">
+	        <form class="contact-form" id="contact-form" name="contactame" novalidate>
+	            <div class="form-row">
+	                <input type="text" id="form-name" name"form-name" placeholder="Escribe tu nombre..." required>
+	                <span id="val-message-name">Por favor, necesito un nombre</span>
+	            </div>
+	             <div class="form-row">
+	                <input type="text" id="form-apellidos" name"form-apellidos" placeholder="Escribe tus apellidos..." required>
+	                <span id="val-message-surname">Por favor, necesito al menos un apellido</span>
+	            </div>
+	            <div class="form-row">
+	                <input type="email" id="form-email" name"form-email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" placeholder="Escribe tu email..." required>
+	                <span id="val-message-email">Por favor, necesito un email válido</span>
+	            </div>
+	            <div class="form-row">
+                    <textarea id="form-message" name"form-message" placeholder="Deja tu comentario..." required></textarea>
+	                <span id="val-message-textarea">Necesito un comentario (menor de 120 palabras)</span>
+	            </div>
+	            <div class="form-row">
+	                <button type="submit" id="form-submit">Enviar</button>
+	            </div>
+	        </form>
+	    </div>
+	</section>
+{% endblock %}
+
