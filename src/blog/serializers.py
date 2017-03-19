@@ -28,7 +28,7 @@ class BlogSerializer(serializers.ModelSerializer):
 
 
 class NewPostSerializer(serializers.ModelSerializer):
-    post_category= CategoriesSerializer(many=True)
+    post_category = CategoriesSerializer(many=True, read_only=True)
 
     class Meta:
         model = Post
