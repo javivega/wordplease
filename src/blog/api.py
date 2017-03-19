@@ -29,7 +29,7 @@ class PostListAPI(ListAPIView):
 
     serializer_class = BlogSerializer
     filter_backends = (SearchFilter, OrderingFilter)
-    search_fields = ('title', 'post_intro', 'post_body', 'post_category')
+    search_fields = ('title', 'post_intro', 'post_body')
     ordering_fields = ('title', 'created_at')
 
     def get_queryset(self):
